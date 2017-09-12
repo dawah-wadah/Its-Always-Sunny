@@ -20,7 +20,7 @@ class Input extends Component {
 			<div className="input-field flex center column">
 				<div className="row flex center">
 					<div className="input-text flex">
-						<div>
+						<div  className='spacer'>
 							<input id="videoUrl" type="text" className="validate" />
 							<label htmlFor="videoUrl"> URL to the Youtube Video</label>
 						</div>
@@ -28,13 +28,13 @@ class Input extends Component {
 				</div>
 				<div className="row flex center">
 					<div className="input-text flex">
-            <div>
+            <div className='spacer'>
 							<input id="start" type="text" className="validate" />
-							<label htmlFor="start"> Start Time</label>
+							<label className='right' htmlFor="start"> Start Time</label>
             </div>
 					</div>
 						<div className="input-text flex center">
-              <div>
+              <div className='spacer'>
 							<input id="end" type="text" className="validate" />
 							<label htmlFor="end"> End Time</label>
 						</div>
@@ -42,7 +42,7 @@ class Input extends Component {
 				</div>
 				<div className="row flex center">
 					<div className="input-text">
-						<div>
+						<div className='spacer'>
 							<input id="title" type="text" className="validate" />
 							<label htmlFor="title"> Title</label>
 						</div>
