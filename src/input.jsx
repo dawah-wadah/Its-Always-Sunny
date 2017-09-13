@@ -17,38 +17,28 @@ class Input extends Component {
 
 	render() {
 		return (
-			<div className="input-field flex center column">
-				<div className="row flex center">
-					<div className="input-text flex">
-						<div  className='spacer'>
-							<input id="videoUrl" type="text" className="validate" />
-							<label htmlFor="videoUrl"> URL to the Youtube Video</label>
+			<div className="input-field">
+				<div className="form test">
+					<div className="row">
+						<p>test</p>
+					</div>
+					<div className="row">
+						<div className="column">
+							<p>test 2</p>
+						</div>
+						<div className="column">
+							<p>test 3</p>
 						</div>
 					</div>
-				</div>
-				<div className="row flex center">
-					<div className="input-text flex">
-            <div className='spacer'>
-							<input id="start" type="text" className="validate" />
-							<label className='right' htmlFor="start"> Start Time</label>
-            </div>
-					</div>
-						<div className="input-text flex center">
-              <div className='spacer'>
-							<input id="end" type="text" className="validate" />
-							<label htmlFor="end"> End Time</label>
+					<div className="row">
+						<div className="column">
+							<p>test 4</p>
 						</div>
 					</div>
-				</div>
-				<div className="row flex center">
-					<div className="input-text">
-						<div className='spacer'>
-							<input id="title" type="text" className="validate" />
-							<label htmlFor="title"> Title</label>
-						</div>
+					<div className="row">
+						<p>test 5</p>
 					</div>
 				</div>
-				<div className="button">Generate</div>
 			</div>
 		);
 	}

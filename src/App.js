@@ -6,7 +6,7 @@ import TitleCard from './titlecard.jsx';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <TitleCard/>
         <Input/>
       </div>
