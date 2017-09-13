@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import titleMusic from './assets/Its Always Sunny in Philadelphia Theme.mp3';
+import titleMusic from "./assets/Its Always Sunny in Philadelphia Theme.mp3";
 
 class TitleCard extends Component {
 	constructor(props) {
@@ -14,15 +14,14 @@ class TitleCard extends Component {
 		this._play = this._play.bind(this);
 	}
 
-	_play(){
+	_play() {
 		this.titleMusic.play();
 	}
 
 	render() {
-
 		return (
 			<div className="titleCard">
-				<div className='title'>{this.state.title}</div>
+				<div className="title">{this.state.title}</div>
 				{this._play()}
 			</div>
 		);

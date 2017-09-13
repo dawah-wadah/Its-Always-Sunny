@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TitleCard from './titlecard.jsx';
+import Youtube from './youtube.jsx';
 
 class Input extends Component {
 	constructor(props) {
@@ -43,21 +44,25 @@ class Input extends Component {
 	}
 
 	_handleSubmit(e) {
-		if (
-			this._validYoutubeLink(this.state.video) &&
-			this._validTime(this.state.start) &&
-			this._validTime(this.state.end) &&
-			this.state.title !== ""
-		) {
-			console.log(this._getUrl(this.state.video));
-			console.log(this._getTime(this.state.start));
-			console.log(this._getTime(this.state.end));
-			console.log(this.state.title);
-			this.setState({ hide: true });
-		} else {
-			console.log("invalid link");
-		}
-		if (this._validTime(this.state.start));
+		// if (
+		// 	this._validYoutubeLink(this.state.video) &&
+		// 	this._validTime(this.state.start) &&
+		// 	this._validTime(this.state.end) &&
+		// 	this.state.title !== ""
+		// ) {
+		// 	console.log(this._getUrl(this.state.video));
+		// 	console.log(this._getTime(this.state.start));
+		// 	console.log(this._getTime(this.state.end));
+		// 	console.log(this.state.title);
+		// 	this.setState({ hide: true });
+		// } else {
+		// 	console.log("invalid link");
+		// }
+		// if (this._validTime(this.state.start));
+
+		this.setState({
+			hide: true,
+		});
 
 		console.log("clicked");
 	}
@@ -78,7 +83,7 @@ class Input extends Component {
 	}
 
 	render() {
-		if (this.state.hide) {
+		if (!this.state.hide) {
 			return (
 				<div className="input-field">
 					<div className="row">
@@ -131,8 +136,13 @@ class Input extends Component {
 					</div>
 				</div>
 			);
-		} else {
-			return <TitleCard title={this.state.title} />;
+		}
+		// else {
+		// 	return <TitleCard title={this.state.title} />;
+		// }
+
+		else {
+			return <Youtube video={this._getUrl(this.state.video)} />;
 		}
 	}
 }
