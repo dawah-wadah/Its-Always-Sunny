@@ -18,7 +18,7 @@ class Input extends Component {
 	}
 
 	_validYoutubeLink(url) {
-		if (url != undefined || url != "") {
+		if (url !== undefined || url !== "") {
 			const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
 			const match = url.match(regExp);
 			if (match && match[2].length === 11) {
@@ -29,13 +29,31 @@ class Input extends Component {
 		} else return false;
 	}
 
-	_handleSubmit(e) {
-
-		if (this._validYoutubeLink(this.state.video)) {
-			console.log('valid link');
+	_validTime(time) {
+		if (time !== null || time !== "") {
+			const regExp = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/.test(
+				time
+			);
+			return regExp;
 		} else {
-			console.log('invalid link');
+			console.log("Not a valid time");
 		}
+	}
+
+	_handleSubmit(e) {
+		if (
+			this._validYoutubeLink(this.state.video) &&
+			this._validTime(this.state.start) &&
+			this._validTime(this.state.end) &&
+			this.state.title !== ""
+		) {
+			console.log(this._getUrl(this.state.video));
+			console.log(this._getTime(this.state.start));
+			console.log(this._getTime(this.state.end));
+		} else {
+			console.log("invalid link");
+		}
+		if (this._validTime(this.state.start));
 
 		console.log("clicked");
 	}
