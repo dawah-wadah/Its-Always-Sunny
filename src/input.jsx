@@ -5,8 +5,8 @@ class Input extends Component {
 		super(props);
 		this.state = {
 			video: "",
-			start: 0,
-			end: 1,
+			start: null,
+			end: null,
 			title: ""
 		};
 	}
@@ -18,7 +18,6 @@ class Input extends Component {
 	render() {
 		return (
 			<div className="input-field">
-				<form className="column">
 					<div className="row">
 						<div className="input-text">
 							<input id="vidURL" type="text" className="input" />
@@ -30,6 +29,7 @@ class Input extends Component {
 							<input id="start" type="text" className="input" />
 							<label htmlFor="start"> Start Time</label>
 						</div>
+						<div className='spacer'></div>
 						<div className="input-text">
 							<input id="end" type="text" className="input" />
 							<label htmlFor="end"> End Time</label>
@@ -38,10 +38,9 @@ class Input extends Component {
 					<div className="row">
 						<div className="input-text">
 							<input id="Title" type="text" className="input" />
-							<label htmlFor="Title"> Titleo</label>
+							<label htmlFor="Title"> Title</label>
 						</div>
 					</div>
-				</form>
 			</div>
 		);
 	}
