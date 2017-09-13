@@ -111,7 +111,16 @@ input {
   text-decoration  : none;
   font-size        : 16px;
   cursor: pointer
-  /* Green */
+}
+
+.titleCard {
+  display: flex;
+}
+
+.title {
+  align-self: center;
+  font-size: 100px;
+  color: white;
 }
 
 .row {
