@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import TitleCard from "./titlecard.jsx";
 import Youtube from "./youtube.jsx";
+import NotificationStack from "./notifications/notification_stack.jsx";
+
+const test = [
+	{ type: "Waring", body: "Missing Something" },
+	{ type: "Waring", body: "Missing Something 2" },
+	{ type: "Waring", body: "Missing Something 3" }
+];
 
 class Input extends Component {
 	constructor(props) {
@@ -77,8 +83,10 @@ class Input extends Component {
 	}
 
 	render() {
+
 		if (!this.state.hide) {
 			return (
+
 				<div className="input-field">
 					<div className="row">
 						<div className="input-text">
@@ -86,6 +94,7 @@ class Input extends Component {
 								id="vidURL"
 								type="text"
 								className="input"
+								required
 								onChange={e => this._onChange(e, "video")}
 							/>
 							<label htmlFor="vidURL"> URL of a Youtube Video</label>
@@ -97,6 +106,7 @@ class Input extends Component {
 								id="start"
 								type="text"
 								className="input"
+								required
 								onChange={e => this._onChange(e, "start")}
 							/>
 							<label htmlFor="start"> Start Time</label>
@@ -107,6 +117,7 @@ class Input extends Component {
 								id="end"
 								type="text"
 								className="input"
+								required
 								onChange={e => this._onChange(e, "end")}
 							/>
 							<label htmlFor="end"> End Time</label>
@@ -118,6 +129,7 @@ class Input extends Component {
 								id="Title"
 								type="text"
 								className="input"
+								required
 								onChange={e => this._onChange(e, "title")}
 							/>
 							<label htmlFor="Title"> Title</label>
