@@ -16,10 +16,12 @@ class Input extends Component {
 			start: null,
 			end: null,
 			title: "Wadah is DABES",
-			hide: false
+			hide: false,
+			id: null
 		};
 
 		this._onChange = this._onChange.bind(this);
+		this.generateID = this.generateID.bind(this);
 	}
 
 	_onChange(e, field) {
@@ -56,9 +58,7 @@ class Input extends Component {
 			this._validTime(this.state.end) &&
 			this.state.title !== ""
 		) {
-			this.setState({
-				hide: true
-			});
+			this._pushToFireBase();
 		} else {
 			console.log("invalid link");
 		}
@@ -82,11 +82,30 @@ class Input extends Component {
 		return sec;
 	}
 
-	render() {
+	generateID() {
+		var id = "";
+		var random =
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for (var i = 0; i < 6; i++)
+			id += random.charAt(Math.floor(Math.random() * random.length));
+		this.setState({ id: id });
+	}
 
+	_pushToFireBase() {
+		this.generateID();
+		let info = window.firebase
+			.database()
+			.ref("videos/" + this.state.id).set({
+			start: this._getTime(this.state.start),
+			end: this._getTime(this.state.end),
+			video: this._getUrl(this.state.video),
+			title: this.state.title
+		});
+	}
+
+	render() {
 		if (!this.state.hide) {
 			return (
-
 				<div className="input-field">
 					<div className="row">
 						<div className="input-text">
