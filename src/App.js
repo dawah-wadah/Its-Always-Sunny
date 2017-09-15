@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 import Input from "./input";
 import Youtube from "./youtube";
