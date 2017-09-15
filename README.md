@@ -1,5 +1,7 @@
 # Dennis is a Bastard Man
 
+* [Live Link](http://www.wadah.us/Its-Always-Sunny/)
+
 ## Dont You Wish Every Video Was a Cold Open From Alway Sunny?
 
 ### You dont? That's Weird
@@ -12,7 +14,7 @@
 
 ### AND SMASH THAT GENERATE BUTTON
 
-- Example:
+## Example:
 
 - Url: https://www.youtube.com/watch?v=lzphtZoN350
 - Start: 0:15
