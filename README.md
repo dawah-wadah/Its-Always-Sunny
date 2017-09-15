@@ -5,16 +5,16 @@
 ### You dont? That's Weird
 
 
-Well if you did, heres the app for you
-Simply input your favorite video into the form
-Assign a start and end time
-Input your funny title card
+- Well if you did, heres the app for you
+- Simply input your favorite video into the form
+- Assign a start and end time
+- Input your funny title card
 
 ### AND SMASH THAT GENERATE BUTTON
 
-Example:
+- Example:
 
-Url: https://www.youtube.com/watch?v=lzphtZoN350
-Start: 0:15
-End: 1:14
-Title: Nick Brings Cocaine and Hookers
+- Url: https://www.youtube.com/watch?v=lzphtZoN350
+- Start: 0:15
+- End: 1:14
+- Title: Nick Brings Cocaine and Hookers
