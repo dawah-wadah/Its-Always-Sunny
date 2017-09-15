@@ -6,7 +6,6 @@ class TitleCard extends Component {
 		super(props);
 
 		this.state = {
-			open: this.props.open,
 			title: this.props.title
 		};
 

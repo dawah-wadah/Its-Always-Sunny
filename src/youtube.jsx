@@ -6,16 +6,38 @@ class YoutubePlayer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			start: parseInt(this.props.start),
-			end: parseInt(this.props.end),
+			video: "",
+			start: null,
+			end: null,
+			title: "",
 			change: false
 		};
+		this.getVideo = this.getVideo.bind(this);
+	}
+
+	componentDidMount() {
+		this.getVideo();
+	}
+
+	getVideo() {
+		const shareID = this.props.match.params.id;
+		let data = window.firebase
+			.database()
+			.ref("videos/" + shareID)
+			.once("value", snapshot => {
+				this.setState({
+					video: snapshot.val().video,
+					start: snapshot.val().start,
+					end: snapshot.val().end,
+					title: snapshot.val().title
+				});
+			});
 	}
 
 	render() {
 		const opts = {
-			width: "90vw",
-			height: "90vh",
+			width: "900",
+			height: "900",
 			playerVars: {
 				controls: 0,
 				disablekb: 1,
@@ -32,38 +54,15 @@ class YoutubePlayer extends React.Component {
 		if (!this.state.change) {
 			return (
 				<Youtube
-					videoId={this.props.video}
+					videoId={this.state.video}
 					opts={opts}
 					onEnd={this._destroy.bind(this)}
 				/>
 			);
 		} else {
-			return <TitleCard title={this.props.title} />;
+			return <TitleCard title={this.state.title} />;
 		}
 	}
-	// render() {
-	// 	const videoSrc =
-	// 		"https://www.youtube.com/embed/" +
-	// 		this.props.video +
-	// 		"?autoplay=" +
-	// 		this.props.autoplay +
-	// 		"&rel=" +
-	// 		this.props.rel +
-	// 		"&modestbranding=" +
-	// 		this.props.modest;
-	// 	return (
-	// 		<div className="container">
-	// 			<iframe
-	// 				className="player"
-	// 				type="text/html"
-	// 				width="100%"
-	// 				height="100%"
-	// 				src={videoSrc}
-	// 				frameborder="0"
-	// 			/>
-	// 		</div>
-	// 	);
-	// }
 
 	_destroy(e) {
 		e.target.destroy();

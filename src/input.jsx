@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Youtube from "./youtube.jsx";
 import NotificationStack from "./notifications/notification_stack.jsx";
+import Promise from "es6-promise";
 
 const test = [
 	{ type: "Waring", body: "Missing Something" },
@@ -15,13 +16,16 @@ class Input extends Component {
 			video: "",
 			start: null,
 			end: null,
-			title: "Wadah is DABES",
-			hide: false,
+			title: "",
 			id: null
 		};
 
 		this._onChange = this._onChange.bind(this);
 		this.generateID = this.generateID.bind(this);
+	}
+
+	componentDidMount() {
+		this.generateID();
 	}
 
 	_onChange(e, field) {
@@ -82,106 +86,121 @@ class Input extends Component {
 		return sec;
 	}
 
-	generateID() {
-		var id = "";
-		var random =
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		for (var i = 0; i < 6; i++)
-			id += random.charAt(Math.floor(Math.random() * random.length));
-		this.setState({ id: id });
-	}
-
-	_pushToFireBase() {
-		this.generateID();
-		let info = window.firebase
-			.database()
-			.ref("videos/" + this.state.id).set({
-			start: this._getTime(this.state.start),
-			end: this._getTime(this.state.end),
-			video: this._getUrl(this.state.video),
-			title: this.state.title
+	checkForSameId(id) {
+		return new Promise((resolve, reject) => {
+			window.firebase
+				.database()
+				.ref("/videos/")
+				.once("value", function(snapshot) {
+					resolve(snapshot.hasChild(id));
+				});
 		});
 	}
 
+	generateID() {
+		var linkID = "";
+		var random =
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for (var i = 0; i < 6; i++) {
+			linkID += random.charAt(Math.floor(Math.random() * random.length));
+		}
+		this.checkForSameId(linkID).then(
+			this.generateID(),
+			this.setState({ id: linkID })
+		);
+	}
+
+	_pushToFireBase() {
+		window.firebase
+			.database()
+			.ref("videos/" + this.state.id)
+			.set({
+				start: this._getTime(this.state.start),
+				end: this._getTime(this.state.end),
+				video: this._getUrl(this.state.video),
+				title: this.state.title
+			})
+			.then(this.props.history.push(`/player/${this.state.id}`));
+	}
+
 	render() {
-		if (!this.state.hide) {
-			return (
-				<div className="input-field">
-					<div className="row">
-						<div className="input-text">
-							<input
-								id="vidURL"
-								type="text"
-								className="input"
-								required
-								onChange={e => this._onChange(e, "video")}
-							/>
-							<label htmlFor="vidURL"> URL of a Youtube Video</label>
-						</div>
-					</div>
-					<div className="row">
-						<div className="input-text">
-							<input
-								id="start"
-								type="text"
-								className="input"
-								required
-								onChange={e => this._onChange(e, "start")}
-							/>
-							<label htmlFor="start"> Start Time</label>
-						</div>
-						<div className="spacer" />
-						<div className="input-text">
-							<input
-								id="end"
-								type="text"
-								className="input"
-								required
-								onChange={e => this._onChange(e, "end")}
-							/>
-							<label htmlFor="end"> End Time</label>
-						</div>
-					</div>
-					<div className="row">
-						<div className="input-text">
-							<input
-								id="Title"
-								type="text"
-								className="input"
-								required
-								onChange={e => this._onChange(e, "title")}
-							/>
-							<label htmlFor="Title"> Title</label>
-						</div>
-					</div>
-					<div className="row">
-						<div className="button" onClick={this._handleSubmit.bind(this)}>
-							Generate
-						</div>
+		return (
+			<div className="input-field">
+				<div className="row">
+					<div className="input-text">
+						<input
+							id="vidURL"
+							type="text"
+							className="input"
+							required
+							onChange={e => this._onChange(e, "video")}
+						/>
+						<label htmlFor="vidURL"> URL of a Youtube Video</label>
 					</div>
 				</div>
-			);
-		} else {
-			// else {
-			// 	return <TitleCard title={this.state.title} />;
-			// }
-
-			return (
-				<Youtube
-					start={this._getTime(this.state.start)}
-					end={this._getTime(this.state.end)}
-					video={this._getUrl(this.state.video)}
-					title={this.state.title}
-				/>
-				// <Youtube
-				// 	video={this._getUrl(this.state.video)}
-				// 	title={this.state.title}
-				// 	ref='0'
-				// 	autoplay='1'
-				// 	modest='1'
-				// 	/>
-			);
-		}
+				<div className="row">
+					<div className="input-text">
+						<input
+							id="start"
+							type="text"
+							className="input"
+							required
+							onChange={e => this._onChange(e, "start")}
+						/>
+						<label htmlFor="start"> Start Time</label>
+					</div>
+					<div className="spacer" />
+					<div className="input-text">
+						<input
+							id="end"
+							type="text"
+							className="input"
+							required
+							onChange={e => this._onChange(e, "end")}
+						/>
+						<label htmlFor="end"> End Time</label>
+					</div>
+				</div>
+				<div className="row">
+					<div className="input-text">
+						<input
+							id="Title"
+							type="text"
+							className="input"
+							required
+							onChange={e => this._onChange(e, "title")}
+						/>
+						<label htmlFor="Title"> Title</label>
+					</div>
+				</div>
+				<div className="row">
+					<div className="button" onClick={this._handleSubmit.bind(this)}>
+						Generate
+					</div>
+				</div>
+			</div>
+		);
+		// } else {
+		// 	// else {
+		// 	// 	return <TitleCard title={this.state.title} />;
+		// 	// }
+		//
+		// 	return (
+		// 		<Youtube
+		// 			start={this._getTime(this.state.start)}
+		// 			end={this._getTime(this.state.end)}
+		// 			video={this._getUrl(this.state.video)}
+		// 			title={this.state.title}
+		// 		/>
+		// 		// <Youtube
+		// 		// 	video={this._getUrl(this.state.video)}
+		// 		// 	title={this.state.title}
+		// 		// 	ref='0'
+		// 		// 	autoplay='1'
+		// 		// 	modest='1'
+		// 		// 	/>
+		// 	);
+		// }
 	}
 }
 
