@@ -2,6 +2,7 @@
   "name": "always-sunny-title-card",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://www.wadah.us/Its-Always-Sunny/",
   "dependencies": {
     "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
