@@ -14,13 +14,13 @@ class YoutubePlayer extends React.Component {
 
 	render() {
 		const opts = {
-			width: "1920",
-			height: "100%",
+			width: "90vw",
+			height: "90vh",
 			playerVars: {
-				autoplay: 1,
 				controls: 0,
 				disablekb: 1,
 				iv_load_policy: 3,
+				autoplay: 1,
 				modestbranding: 1,
 				showinfo: 0,
 				enablejsapi: 1,
@@ -41,12 +41,35 @@ class YoutubePlayer extends React.Component {
 			return <TitleCard title={this.props.title} />;
 		}
 	}
+	// render() {
+	// 	const videoSrc =
+	// 		"https://www.youtube.com/embed/" +
+	// 		this.props.video +
+	// 		"?autoplay=" +
+	// 		this.props.autoplay +
+	// 		"&rel=" +
+	// 		this.props.rel +
+	// 		"&modestbranding=" +
+	// 		this.props.modest;
+	// 	return (
+	// 		<div className="container">
+	// 			<iframe
+	// 				className="player"
+	// 				type="text/html"
+	// 				width="100%"
+	// 				height="100%"
+	// 				src={videoSrc}
+	// 				frameborder="0"
+	// 			/>
+	// 		</div>
+	// 	);
+	// }
 
 	_destroy(e) {
 		e.target.destroy();
-    this.setState({
-      change: true
-    });
+		this.setState({
+			change: true
+		});
 	}
 }
 

@@ -154,6 +154,13 @@ class Input extends Component {
 					video={this._getUrl(this.state.video)}
 					title={this.state.title}
 				/>
+				// <Youtube
+				// 	video={this._getUrl(this.state.video)}
+				// 	title={this.state.title}
+				// 	ref='0'
+				// 	autoplay='1'
+				// 	modest='1'
+				// 	/>
 			);
 		}
 	}

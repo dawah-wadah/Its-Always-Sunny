@@ -8,7 +8,21 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
 
+
     -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyCfxSww3SoOkgjV8f5hvXJ6kIVhNOMklik",
+	authDomain: "always-buggy-in-my-code.firebaseapp.com",
+	databaseURL: "https://always-buggy-in-my-code.firebaseio.com",
+	projectId: "always-buggy-in-my-code",
+	storageBucket: "always-buggy-in-my-code.appspot.com",
+	messagingSenderId: "414701029481"
+};
+firebase.initializeApp(config);
+</script>
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
