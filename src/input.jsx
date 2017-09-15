@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import Youtube from "./youtube.jsx";
-import NotificationStack from "./notifications/notification_stack.jsx";
+// import NotificationStack from "./notifications/notification_stack.jsx";
 import Promise from "es6-promise";
 
-const test = [
-	{ type: "Waring", body: "Missing Something" },
-	{ type: "Waring", body: "Missing Something 2" },
-	{ type: "Waring", body: "Missing Something 3" }
-];
+// const test = [
+// 	{ type: "Waring", body: "Missing Something" },
+// 	{ type: "Waring", body: "Missing Something 2" },
+// 	{ type: "Waring", body: "Missing Something 3" }
+// ];
 
 class Input extends Component {
 	constructor(props) {
@@ -104,10 +103,10 @@ class Input extends Component {
 		for (var i = 0; i < 6; i++) {
 			linkID += random.charAt(Math.floor(Math.random() * random.length));
 		}
-		this.checkForSameId(linkID).then(
-			this.generateID(),
-			this.setState({ id: linkID })
-		);
+		this.checkForSameId(linkID).then( data => {
+			data ? this.generateID() : this.setState({ id: linkID });
+		});
+
 	}
 
 	_pushToFireBase() {
@@ -180,27 +179,6 @@ class Input extends Component {
 				</div>
 			</div>
 		);
-		// } else {
-		// 	// else {
-		// 	// 	return <TitleCard title={this.state.title} />;
-		// 	// }
-		//
-		// 	return (
-		// 		<Youtube
-		// 			start={this._getTime(this.state.start)}
-		// 			end={this._getTime(this.state.end)}
-		// 			video={this._getUrl(this.state.video)}
-		// 			title={this.state.title}
-		// 		/>
-		// 		// <Youtube
-		// 		// 	video={this._getUrl(this.state.video)}
-		// 		// 	title={this.state.title}
-		// 		// 	ref='0'
-		// 		// 	autoplay='1'
-		// 		// 	modest='1'
-		// 		// 	/>
-		// 	);
-		// }
 	}
 }
 

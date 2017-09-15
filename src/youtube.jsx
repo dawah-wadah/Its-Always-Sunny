@@ -21,16 +21,20 @@ class YoutubePlayer extends React.Component {
 
 	getVideo() {
 		const shareID = this.props.match.params.id;
-		let data = window.firebase
+		window.firebase
 			.database()
 			.ref("videos/" + shareID)
 			.once("value", snapshot => {
-				this.setState({
-					video: snapshot.val().video,
-					start: snapshot.val().start,
-					end: snapshot.val().end,
-					title: snapshot.val().title
-				});
+				if (snapshot.val()) {
+					this.setState({
+						video: snapshot.val().video,
+						start: snapshot.val().start,
+						end: snapshot.val().end,
+						title: snapshot.val().title
+					});
+				} else {
+					this.props.history.push("/");
+				}
 			});
 	}
 
