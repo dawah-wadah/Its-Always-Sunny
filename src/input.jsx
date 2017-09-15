@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-// import NotificationStack from "./notifications/notification_stack.jsx";
 import Promise from "es6-promise";
-
-// const test = [
-// 	{ type: "Waring", body: "Missing Something" },
-// 	{ type: "Waring", body: "Missing Something 2" },
-// 	{ type: "Waring", body: "Missing Something 3" }
-// ];
 
 class Input extends Component {
 	constructor(props) {

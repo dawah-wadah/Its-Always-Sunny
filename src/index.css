@@ -15,10 +15,11 @@ input {
 }
 
 .app {
-  display       : flex;
-  height        : 100vh;
-  align-content : center;
-  justify-content: center;
+  display          : flex;
+  height           : 100vh;
+  background-image : url('https://i.imgur.com/rqzepn2.jpg');
+  align-content    : center;
+  justify-content  : center;
 }
 
 .input-field {
@@ -115,7 +116,10 @@ input {
 }
 
 .titleCard {
-  display : flex;
+  display         : flex;
+  width           : 100%;
+  background      : black;
+  justify-content: center;
 }
 
 .title {
@@ -148,33 +152,33 @@ input {
 }
 
 .notification {
-  margin            : 4px;
-  padding           : 15px 160px;
-  color             : white;
-  opacity           : 2.4;
-  border            : none;
-  border-radius     : 4px;
-  background-color  : red;
-  text-align        : center;
-  text-decoration   : none;
-transition: 0.3s ease-out;
+  margin           : 4px;
+  padding          : 15px 160px;
+  color            : white;
+  opacity          : 2.4;
+  border           : none;
+  border-radius    : 4px;
+  background-color : red;
+  text-align       : center;
+  text-decoration  : none;
+  transition       : 0.3s ease-out;
 }
 
 .container {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; //16 x 9
-  position: relative;
-  display: flex;
-  justify-content: center;
+  display         : flex;
+  position        : relative;
+  width           : 100%;
+  height          : 0;
+  padding-bottom  : 56.25%;
+  justify-content : center;
 }
 
 .player {
-  margin: auto 0;
-  width: 90vw;
-  height: 90vh;
+  width  : 90vw;
+  height : 90vh;
+  margin : auto 0;
 }
 
 iframe {
-  border-width: 0px;
+  border-width : 0px;
 }
