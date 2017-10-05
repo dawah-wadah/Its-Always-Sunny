@@ -2,7 +2,7 @@
 [Live Link](http://www.wadah.us/Its-Always-Sunny/)
 
 ## Dennis is asshole, why Charlie hate?
-<div>
+<div align='center'>
 <img src='http://i.imgur.com/vFbDarU.gif'/>
 </div>
 
