@@ -1,7 +1,10 @@
-# Dennis is a Bastard Man
 
 * [Live Link](http://www.wadah.us/Its-Always-Sunny/)
 
+## Dennis is asshole, why Charlie hate?
+<div>
+<img src='http://i.imgur.com/vFbDarU.gif'/>
+</div>
 ## Dont You Wish Every Video Was a Cold Open From Alway Sunny?
 
 ### You dont? That's Weird
