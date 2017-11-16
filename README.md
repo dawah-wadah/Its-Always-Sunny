@@ -1,27 +1,30 @@
 
 [Live Link](http://www.wadah.us/Its-Always-Sunny/)
 
-## Dennis is asshole, why Charlie hate?
+> An ode to Its Always Sunny and its clever usage of a cold open. TTurn any youtube video into an opening of It's Always Sunny
+
+## Installation
+
+```sh
+$ npm install
+$ npm start
+```
+
+## Usage
+
+```js
+- Copy in a link to your favorite video
+- Assign a start and end time
+- Caption your video with a clever title and submit.
+```
+
+##Built with React and Firebase
+
+## License
+
+MIT © [Wadah Adlan](www.wadah.us)
+
+## Dennis is a**hole, why Charlie hate?
 <div align='center'>
 <img src='http://i.imgur.com/vFbDarU.gif'/>
 </div>
-
-
-## Don't You Wish Every Video Was a Cold Open From Alway Sunny?
-
-### You dont? That's Weird
-
-
-- Well if you did, heres the app for you
-- Simply input your favorite video into the form
-- Assign a start and end time
-- Input your funny title card
-
-### AND SMASH THAT GENERATE BUTTON
-
-## Example:
-
-- Url: https://www.youtube.com/watch?v=lzphtZoN350
-- Start: 0:15
-- End: 1:14
-- Title: Nick Brings Cocaine and Hookers
