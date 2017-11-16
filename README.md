@@ -18,7 +18,17 @@ $ npm start
 - Caption your video with a clever title and submit.
 ```
 
-##Built with React and Firebase
+
+
+## Built with
+```
+React(Frontend)
+React Router v4
+React Youtube Player
+
+Firebase (Backend)
+
+ ```
 
 ## License
 
